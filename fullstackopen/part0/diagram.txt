@@ -1,0 +1,21 @@
+#0.4: New note diagram
+
+```mermaid
+sequenceDiagram
+    participant browser
+    participant server
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note 
+    302 /exampleapp/notes
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    200 HTML document
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    200 CSS file
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    200 JS script
+
+    Note right of browser: Browser fetches JSON from server due to executing Javascript
+    
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    200 JSON of notes
+
+```
